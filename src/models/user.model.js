@@ -1,9 +1,10 @@
 const mongoose = require('mongoose');
+const bcrypt = require('bcrypt'); //iska matlab hai ki password hashing ke liye bcrypt library ka use kar rahe hain, jisse password ko secure banaya ja sakta hai
 
 const userSchema = new mongoose.Schema({
     email: {
         type: String, 
-        required: [, "Email is required for creating account"],
+        required: [true, "Email is required for creating account"],
         unique: [true, "Email already exist"],
         trim : true, //iska matlab hai ki email ke aage ya peeche koi space nahi hona chahiye
         match: [/.+@.+\..+/, "Please enter a valid email address"] //iska matlab hai ki email ka format sahi hona chahiye
